@@ -78,7 +78,7 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: 
 
 .welcome-text { margin-bottom: 30px; color: #4b5320; min-height: 80px; }
 .typewriter-line1 { font-size: 1.2rem; margin: 0; letter-spacing: 2px; }
-.typewriter-line2 { font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin: 10px 0; }
+.typewriter-line2 { font-family: 'Great Vibes', cursive; font-size: 1.8rem; margin: 8px 0; }
 .typewriter-line1::after, .typewriter-line2::after { content: "|"; animation: blink 0.7s infinite; }
 
 @keyframes blink { 50% { opacity: 0; } }
@@ -145,4 +145,5 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: 
     0%, 100% { transform: scaleX(-1) rotate(0deg) scale(1); } 
     50% { transform: scaleX(-1) rotate(-3deg) scale(1.05); } 
 }
+
 .floral-center-bg { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 250px; height: 250px; background: url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-wedding-invitation-flower-corner-decoration-png-image_6144805.png') no-repeat center; background-size: contain; opacity: 0.15; z-index: 0; }
