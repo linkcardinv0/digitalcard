@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haqimi & Balqis Engagement Digital Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="main-ui" class="ui-wrapper hidden">
+        <div class="glass-card">
+            <div class="floral1 pink-left"></div>
+            <div class="floral1 pink-right"></div>
+            <div class="floral maroon-1"></div> 
+            <div class="floral maroon-2"></div> 
+            <div class="floral maroon-3"></div> 
+            
+            <div class="content">
+
+                <p class="title">MAJLIS</p>
+                <p class="subtitle">Merisik & Bertunang</p>
+                
+                <h1 class="monogram">H & B</h1>
+                <p class="names">Haqimi & Balqis</p>
+                <p class="date-hero">12.12.2026</p>
+
+                <div class="calendar-container">
+                    <p class="month">DECEMBER 2026</p>
+                    <div class="calendar-grid">
+                        <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                        <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
+                        <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                        <span>11</span><span class="marked">12</span><span>13</span><span>14</span><span>15</span><span>16</span>
+                        <span >17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    
+                   <div class="button-group">
+    <a href="https://www.google.com/maps/place/4,+Jalan+Dahlia+13,+Taman+Bukit+Dahlia,+81700+Pasir+Gudang,+Johor+Darul+Ta'zim/@1.4777458,103.8955896,17z/data=!3m1!4b1!4m5!3m4!1s0x31da6ab3451500fd:0x684a39aedf5b2ad4!8m2!3d1.4777458!4d103.8981645?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-location">LOCATION</a>
+    
+    <a href="https://wa.me/60106660301?text=" 
+       target="_blank" class="btn-wa">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="20">
+    </a>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="start-overlay">
+        <div class="welcome-container">
+            <div class="floral-border"></div>
+            
+            <div class="welcome-text">
+                <p class="typewriter-line1"></p>
+                <h1 class="typewriter-line2"></h1>
+            </div>
+            
+            <button id="openBtn">BUKA UNDANGAN</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <audio id="bgMusic" loop>
+    <source src="athousandyears.mp3" type="audio/mp3">
+</audio>
+</body>
+</html>

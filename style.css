@@ -1,0 +1,148 @@
+body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #f1f3e8; font-family: 'Montserrat', serif;body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f3e8; /* Warna Matcha diletakkan di sini */
+    overflow: hidden;
+}}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Cincin di lapisan paling bawah */
+    pointer-events: none;
+}
+
+/* 1. Glass Card (Main Invitation) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(255, 255, 255, 0.8);
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    width: 320px;
+    padding: 40px 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 0 15px rgba(255,255,255,0.2);
+    position: relative;
+    text-align: center;
+    color: #4b5320;
+    transform: translateY(100vh);
+    transition: transform 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.ui-wrapper {
+    position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 10; pointer-events: none;
+}
+.ui-wrapper.show { pointer-events: auto; }
+.ui-wrapper.show .glass-card { transform: translateY(0); }
+
+/* 2. Typography */
+.monogram {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin: 5px 0;
+    background: linear-gradient(to bottom, #4b5320, #8c7355);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.names { font-weight: bold; letter-spacing: 2px; }
+.date-hero { font-size: 1.1rem; letter-spacing: 3px; font-weight: bold; margin-top: 10px; }
+
+/* 3. Welcome Screen & Typewriter */
+#start-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10; /* Teks & Butang di atas cincin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; /* PENTING: Mesti transparent supaya cincin nampak */
+    flex-direction: column;
+}
+.welcome-container { position: relative; padding: 60px; text-align: center; z-index: 101; }
+
+.floral-border {
+    position: absolute; inset: 0; border: 2px solid #ffb6c1; border-radius: 50px;
+    background-image: url('https://www.pngmart.com/files/21/Aesthetic-Flowers-PNG-Isolated-HD.pnghttps://www.pngmart.com/files/21/Aesthetic-Flowers-PNG-Isolated-HD.png');
+    background-size: 80px; background-repeat: no-repeat;
+    background-position: top left, top right, bottom left, bottom right;
+    mask-image: radial-gradient(circle, transparent 70%, black 100%);
+    opacity: 0.8; pointer-events: none;
+}
+
+.welcome-text { margin-bottom: 30px; color: #4b5320; min-height: 80px; }
+.typewriter-line1 { font-size: 1.2rem; margin: 0; letter-spacing: 2px; }
+.typewriter-line2 { font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin: 10px 0; }
+.typewriter-line1::after, .typewriter-line2::after { content: "|"; animation: blink 0.7s infinite; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* 4. Buttons */
+#openBtn {
+    position: relative; z-index: 110; padding: 12px 35px;
+    background-color: #4b5320; color: white; border: none; border-radius: 25px;
+    cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+#openBtn:hover { background-color: #ffb6c1; transform: scale(1.05); }
+
+.button-group { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 25px; }
+.btn-location { background: #8c7355; color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none; font-size: 12px; }
+.btn-ig { background: white; border-radius: 50%; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+/* 5. Calendar & Decoration */
+.calendar-container { margin: 20px 0; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 15px; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; font-size: 11px; margin-top: 10px; }
+.marked { position: relative; color: #ff6b81; font-weight: bold; }
+.marked::after { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; border: 1.5px solid #ffb6c1; border-radius: 50%; }
+
+.floral1 { position: absolute; width: 127px; height: 95px; background: url('https://i.pinimg.com/originals/f2/7d/2c/f27d2c79ef3f9d00a52ffa4de9eb4048.png') no-repeat; background-size: contain; z-index: 11; animation: floralSway 6s infinite ease-in-out; }
+.pink-left {
+    top: -45px;
+    left: -40px;
+    z-index: 25;
+    animation: floralSwayMirror 6s infinite ease-in-out !important;
+}
+
+.pink-right {
+    top: -45px;
+    right: -40px;
+    /* Belah kanan tak payah scaleX, rotate je bagi dia tunduk masuk */
+    transform: rotate(-15deg); 
+    z-index: 25;
+}
+.floral { position: absolute; width: 127px; height: 95px; background: url('https://static.vecteezy.com/system/resources/previews/024/960/497/original/pink-and-rosegold-3d-flower-papercut-wallpaper-classic-home-decoration-3d-paper-cut-background-ai-generative-png.png') no-repeat; background-size: contain; z-index: 11; animation: floralSway 6s infinite ease-in-out; }
+
+.maroon-1 {
+    top: -45px;
+    left: 30%;
+    transform: translateX(-50%) rotate(-5deg);
+    z-index: 9;
+}
+
+.maroon-2 {
+    top: -45px; /* Tinggi sikit */
+    left: 45%;
+    transform: translateX(-50%) scale(1.1);
+    z-index: 9;
+}
+
+.maroon-3 {
+    top: -45px;
+    left: 70%;
+    transform: translateX(-50%) scale(1.1) scaleX(-1); /* Mirror maroon juga */
+    z-index: 9;
+}
+
+
+
+@keyframes floralSwayMirror { 
+    0%, 100% { transform: scaleX(-1) rotate(0deg) scale(1); } 
+    50% { transform: scaleX(-1) rotate(-3deg) scale(1.05); } 
+}
+.floral-center-bg { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 250px; height: 250px; background: url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-wedding-invitation-flower-corner-decoration-png-image_6144805.png') no-repeat center; background-size: contain; opacity: 0.15; z-index: 0; }
