@@ -42,6 +42,7 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: 
 .ui-wrapper.show .glass-card { transform: translateY(0); }
 
 /* 2. Typography */
+/* 2. Typography */
 .monogram {
     font-family: 'Great Vibes', cursive;
     font-size: 4rem;
@@ -50,8 +51,19 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    
+    /* --- FIX TERPOTONG DI SINI --- */
+    padding: 0 25px;       /* Tambah ruang kiri kanan */
+    overflow: visible;     /* Biar ekor font keluar dari kotak */
+    line-height: 1.3;      /* Bagi ruang atas bawah sikit */
 }
-.names { font-weight: bold; letter-spacing: 2px; }
+
+.names { 
+    font-weight: bold; 
+    letter-spacing: 2px;
+    display: block;        /* Pastikan nama Haqimi & Balqis ada baris sendiri */
+    padding: 0 10px;       /* Safety padding */
+}
 .date-hero { font-size: 1.1rem; letter-spacing: 3px; font-weight: bold; margin-top: 10px; }
 
 /* 3. Welcome Screen & Typewriter */
@@ -147,3 +159,4 @@ body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: 
 }
 
 .floral-center-bg { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 250px; height: 250px; background: url('https://png.pngtree.com/png-vector/20220909/ourmid/pngtree-wedding-invitation-flower-corner-decoration-png-image_6144805.png') no-repeat center; background-size: contain; opacity: 0.15; z-index: 0; }
+
