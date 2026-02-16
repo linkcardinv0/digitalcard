@@ -111,7 +111,7 @@ if (openBtn) {
     openBtn.addEventListener('click', () => {
         // A. MAIN LAGU (FADE IN)
         if (bgMusic) {
-            bgMusic.volume = 0; // Mula dengan senyap
+            bgMusic.volume = 0.1; // Mula dengan senyap
             bgMusic.play();
             
             // Naikkan volume sikit-sikit
@@ -166,4 +166,5 @@ window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     }
+
 });
